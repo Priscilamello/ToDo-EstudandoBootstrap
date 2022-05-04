@@ -27,3 +27,32 @@ addBtn.onclick = _ => {
     localStorage.setItem('New Todo', JSON.stringify (listArr)) // estamos transformando um ob js em um fragmento js
 }
 
+
+//função para adicionar tarefas dentro da lista
+function showTasks(){
+    let getLocalStorage = localStorage.getItem('New Todo')// esta variável pega o armazenamento local
+    if(getLocalStorage == null){
+        listArr = []
+    }else{
+        listArr = JSON.parse(getLocalStorage)
+    }
+    const pendingNum = document.querySelector('.pendingNum')
+    pendingNum.textContent = listArr.length
+
+    if(listArr.length > 0){ //se o tamanho do array for maior que 0
+        deleteAllBtn.classList.add('active')//ativa a classe active
+    }else{
+        deleteAllBtn.classList.remove('active')//desativa a classe active
+    }
+
+    let newLiTag = ''
+    addBtn.classList.remove('active')
+    listArr.forEach((element, index) => {
+        newLiTag += `
+        <li> ${element} <span onclick = "deleteTask()"></span></li>
+        ` 
+        
+    })
+    todoList.innerHTML = newLitag // add uma nova li dentro da nossa lista no HTML
+    inputBox.value = '' //uma vez adicionada a tarefa deixe o campo entrada em branco
+}
