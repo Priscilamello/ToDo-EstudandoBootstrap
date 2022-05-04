@@ -13,3 +13,17 @@ inputBox.onkeyup = _ => {
     }
 
 }
+
+addBtn.onclick = _ => {
+    let userData = inputBox.value
+    let getLocalStorage = localStorage.getItem ('New Todo') // esta variável pega o armazenamento local
+    if (getLocalStorage == null){  //vamos verificar se o armazenamento local for nulo
+        listArr = [] //vamos criar um array em branco
+
+    }else{
+        listArr = JSON.parse(getLocalStorage) //estamos empurrando ou add dados deo usuário à nossa lista
+    }
+    listArr.push(userData) // empurrando para dentro do array os dados do usuário
+    localStorage.setItem('New Todo', JSON.stringify (listArr)) // estamos transformando um ob js em um fragmento js
+}
+
