@@ -60,7 +60,7 @@ function showTasks() {
 //função para deletar uma tarefa específica
 function deleteTask(index) {
   let getLocalStorage = localStorage.getItem('New Todo')
-  listArr = JSON.parse(getLocalStorage)
+  listArr =JSON.parse(getLocalStorage)
   listArr.splice(index, 1) // exclui ou remove um determinado item indexado
   //? depois de remover o item atualize noivamente o armazenamento local
   localStorage.setItem('New Todo', JSON.stringify(listArr))
@@ -71,6 +71,6 @@ function deleteTask(index) {
 deleteAllBtn.onclick =_=> {
     listArr = [] //array vazio
     //após deletar todas as tarefas atualizar novamnetente o armazenamento local
-    localStorage.setItem('new Todo', JASON.stringify(listArr))
+    localStorage.setItem('New Todo', JSON.stringify(listArr))
     showTasks()
 }
