@@ -50,7 +50,7 @@ function showTasks() {
   addBtn.classList.remove('active')
   listArr.forEach((element, index) => {
     newLiTag += `
-    <li>${element}<span onclick="deleteTask(${index})"></span></li>
+    <li>${element}<span onclick="deleteTask(${index})"><i class="fa-solid fa-trash-can"></i></span></li>
     `
   }) 
   todoList.innerHTML = newLiTag // Adicionando uma nova li dentro da nossa lista no HTML
